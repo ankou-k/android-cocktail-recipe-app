@@ -41,7 +41,7 @@ fun FoundCocktailsScreen(
             Spacer(modifier = Modifier.height(10.dp))
             LazyColumn(modifier = Modifier.fillMaxWidth()) {
                 items(searchCocktailsVM.cocktails.value) { cocktail ->
-                    FoundCocktailCard(cocktail = cocktail, navController = navController, )
+                    FoundCocktailCard(cocktail = cocktail, navController = navController)
                 }
             }
         }

@@ -30,7 +30,6 @@ import com.example.cocktailsrecipebook.uilayer.FavCocktailsVM
 fun FoundCocktailCard(
     cocktail: CocktailResponse,
     navController: NavController,
-    favCocktailsVM: FavCocktailsVM
 ) {
     Card(modifier = Modifier.padding(5.dp)) {
         Column() {
