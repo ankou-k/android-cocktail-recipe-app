@@ -1,5 +1,7 @@
 # Cocktail Recipe Book
 
+### Video link: https://youtu.be/zZ5Mu_JDbXc 
+
 This app is for having a cocktail recipe book, users can find cocktails and discover new cocktails by ingredients, look at recipes, and save the recipes they like (saved locally). The app also integrates user analytics through Firebase.
 
 ## Implementations
