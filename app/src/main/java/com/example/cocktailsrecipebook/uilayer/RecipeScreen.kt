@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -15,15 +16,24 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.cocktailsrecipebook.datalayer.roomDB.Cocktail
+import com.example.cocktailsrecipebook.navigation.MyTopBarNavBack
+import com.example.cocktailsrecipebook.navigation.MyTopBarSimple
 
 @Composable
 fun RecipeScreen(
     cocktailName: String,
     favCocktailsVM: FavCocktailsVM)
 {
+    Scaffold(
+        // Bottom navigation bar for switching between main screens
+        topBar = {
+            MyTopBarSimple()
+        },
+    ) { innerPadding ->
 
-    favCocktailsVM.searchForCocktail(cocktailName)
-    CocktailContent(cocktail = favCocktailsVM.currentCocktail.value)
+        favCocktailsVM.searchForCocktail(cocktailName)
+        CocktailContent(cocktail = favCocktailsVM.currentCocktail.value)
+    }
 }
 
 @Composable

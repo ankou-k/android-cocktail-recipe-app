@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.cocktailsrecipebook.datalayer.roomDB.Cocktail
+import com.example.cocktailsrecipebook.navigation.MyTopBarSimple
 
 @Composable
 fun FavCocktailsScreen(
@@ -18,17 +19,25 @@ fun FavCocktailsScreen(
     // Collect the state from ViewModel
     val cocktails by viewModel.favoritesCocktails.collectAsState()
 
+
     // Load cocktails when screen is first displayed
     LaunchedEffect(Unit) {
         viewModel.getAllSavedCocktails()
     }
 
-    FavoriteCocktailsContent(
-        cocktails = cocktails,
-        onDeleteCocktail = { cocktail ->
-            viewModel.deleteCocktail(cocktail)
-        }
-    )
+    Scaffold(
+        // Bottom navigation bar for switching between main screens
+        topBar = {
+            MyTopBarSimple()
+        },
+    ) { innerPadding ->
+        FavoriteCocktailsContent(
+            cocktails = cocktails,
+            onDeleteCocktail = { cocktail ->
+                viewModel.deleteCocktail(cocktail)
+            }
+        )
+    }
 }
 
 @Composable

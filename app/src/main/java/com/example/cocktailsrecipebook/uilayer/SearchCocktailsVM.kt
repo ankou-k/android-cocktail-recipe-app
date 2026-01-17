@@ -14,7 +14,6 @@ class SearchCocktailsVM: ViewModel() {
     // bring instance of repository between data layer and ui layer
     private val repo = CocktailRepo()
 
-
     var cocktails = MutableStateFlow<List<CocktailResponse>>(emptyList())
     var searchJob : Job? = null
 

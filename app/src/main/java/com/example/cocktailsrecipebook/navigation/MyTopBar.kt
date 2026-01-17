@@ -25,7 +25,7 @@ fun MyTopBarSimple() {
 
     CenterAlignedTopAppBar(
         // Set title to display in Top Bar
-        title = { Text("Everyday Motivations") },
+        title = { Text("Cocktail Recipes") },
         colors = TopAppBarDefaults.topAppBarColors(containerColor = Pink80),
         // Actions are to the left of the title
         // No actions needed for this app
@@ -41,7 +41,7 @@ onBack: () -> Unit
 ) {
     CenterAlignedTopAppBar(
         // Set title to display in Top Bar
-        title = { Text("Found Quotes") },
+        title = { Text("Cocktail Recipes") },
         colors = TopAppBarDefaults.topAppBarColors(containerColor = Pink80),
         navigationIcon = {
             IconButton(onClick = { onBack() }) {

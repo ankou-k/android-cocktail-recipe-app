@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -18,6 +19,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.cocktailsrecipebook.navigation.MyTopBarSimple
 
 @Composable
 fun SearchCocktailScreen(
@@ -27,53 +29,60 @@ fun SearchCocktailScreen(
     var name by remember { mutableStateOf("") }
     var ingredients by remember { mutableStateOf("") }
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        // Title
-        Text(
-            text = "Search Cocktails",
-            modifier = Modifier.padding(bottom = 24.dp),
-            fontWeight = FontWeight.Bold,
-            fontSize = 30.sp
-        )
-        Text(
-            text = "Name: ",
-            fontSize = 20.sp,
-            fontWeight = FontWeight.Normal
-        )
+    Scaffold(
+        // Bottom navigation bar for switching between main screens
+        topBar = {
+            MyTopBarSimple()
+        },
+    ) { innerPadding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            // Title
+            Text(
+                text = "Search Cocktails",
+                modifier = Modifier.padding(bottom = 24.dp),
+                fontWeight = FontWeight.Bold,
+                fontSize = 30.sp
+            )
+            Text(
+                text = "Name: ",
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Normal
+            )
 
-        // TextField for user input
-        TextField(
-            value = name,
-            onValueChange = { name = it },
-            modifier = Modifier.fillMaxWidth()
-        )
+            // TextField for user input
+            TextField(
+                value = name,
+                onValueChange = { name = it },
+                modifier = Modifier.fillMaxWidth()
+            )
 
-        Text(
-            text = "Ingredients: ",
-            fontSize = 20.sp,
-            fontWeight = FontWeight.Normal
-        )
+            Text(
+                text = "Ingredients: ",
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Normal
+            )
 
-        TextField(
-            value = ingredients,
-            onValueChange = { ingredients = it },
-            modifier = Modifier.fillMaxWidth()
-        )
+            TextField(
+                value = ingredients,
+                onValueChange = { ingredients = it },
+                modifier = Modifier.fillMaxWidth()
+            )
 
-        Button(onClick = {
-            val result =  searchCocktailsVM.onSearchClick(name, ingredients)
-            if (result) {
-                navController.navigate("found-cocktails")
+            Button(onClick = {
+                val result = searchCocktailsVM.onSearchClick(name, ingredients)
+                if (result) {
+                    navController.navigate("found-cocktails")
+                }
+            }) {
+                Text("Search")
             }
-        }) {
-            Text("Search")
-        }
 
+        }
     }
 }
 
