@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "292696711569",
+    "project_id": "cocktail-recipe-book-caf50",
+    "storage_bucket": "cocktail-recipe-book-caf50.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292696711569:android:67b629d7057bed4da63a30",
+        "android_client_info": {
+          "package_name": "com.example.cocktailsrecipebook"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEEoPpZ531zU5Mk4hgPku7BEOuQ3paaoY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
